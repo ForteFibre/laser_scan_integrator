@@ -4,6 +4,7 @@
 //   24/2/2022
 //
 
+#include <tf2/time.h>
 #include <tf2_ros/create_timer_ros.h>
 
 #include <algorithm>
@@ -74,8 +75,12 @@ private:
   void update_point_cloud_rgb()
   {
     refresh_params();
-    trans1_ = tf2_->lookupTransform(integratedFrameId_, laser1_->header.frame_id, rclcpp::Time(0));
-    trans2_ = tf2_->lookupTransform(integratedFrameId_, laser2_->header.frame_id, rclcpp::Time(0));
+    trans1_ = tf2_->lookupTransform(
+      integratedFrameId_, laser1_->header.frame_id, tf2::TimePointZero,
+      std::chrono::milliseconds(1000));
+    trans2_ = tf2_->lookupTransform(
+      integratedFrameId_, laser2_->header.frame_id, tf2::TimePointZero,
+      std::chrono::milliseconds(1000));
     double sensor1_r, sensor1_p, sensor1_y, sensor2_r, sensor2_p, sensor2_y;
     geometry_quat_to_rpy(&sensor1_r, &sensor1_p, &sensor1_y, trans1_.transform.rotation);
     geometry_quat_to_rpy(&sensor2_r, &sensor2_p, &sensor2_y, trans2_.transform.rotation);
