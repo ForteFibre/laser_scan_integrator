@@ -200,7 +200,7 @@ private:
         temp_range.push_back(range);
       } else {
         float max_range = 30.0;
-        temp_range.push_back(max_range);
+        temp_range.push_back(std::numeric_limits<float>::quiet_NaN());
       }
     }
     integrated_msg_->ranges = temp_range;

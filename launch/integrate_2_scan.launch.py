@@ -16,22 +16,22 @@ def generate_launch_description():
     
     #parameter for the first laserscan, feel free to duplicate and rename for other laserscans
     scanTopic1 = LaunchConfiguration('scanTopic1', default="left_lrf/scan")
-    laser1XOff = LaunchConfiguration('laser1XOff', default=0.0)
-    laser1YOff = LaunchConfiguration('laser1YOff', default=0.0)
+    laser1XOff = LaunchConfiguration('laser1XOff', default=-0.05)
+    laser1YOff = LaunchConfiguration('laser1YOff', default=0.05)
     laser1Yaw = LaunchConfiguration('laser1Yaw', default=0.0)
     show1 = LaunchConfiguration('show1', default=True)
 
     #parameter for the second laserscan, feel free to duplicate and rename for other laserscans
     scanTopic2 = LaunchConfiguration('scanTopic2', default="right_lrf/scan")
-    laser2XOff = LaunchConfiguration('laser2XOff', default=-0.0)
-    laser2YOff = LaunchConfiguration('laser2YOff', default=0.0)
+    laser2XOff = LaunchConfiguration('laser2XOff', default=0.05)
+    laser2YOff = LaunchConfiguration('laser2YOff', default=-0.05)
     laser2Yaw = LaunchConfiguration('laser2Yaw', default=0.0)
     show2 = LaunchConfiguration('show2', default=True)
 
-    robotFrontEnd = LaunchConfiguration('robotFrontEnd', default=0.35)
-    robotRearEnd = LaunchConfiguration('robotRearEnd', default=-0.35)
-    robotRightEnd = LaunchConfiguration('robotRightEnd', default=0.35)
-    robotLeftEnd = LaunchConfiguration('robotLeftEnd', default=-0.35)
+    robotFrontEnd = LaunchConfiguration('robotFrontEnd', default=0.30)
+    robotRearEnd = LaunchConfiguration('robotRearEnd', default=-0.30)
+    robotRightEnd = LaunchConfiguration('robotRightEnd', default=0.30)
+    robotLeftEnd = LaunchConfiguration('robotLeftEnd', default=-0.30)
 
     return LaunchDescription([
         DeclareLaunchArgument(
